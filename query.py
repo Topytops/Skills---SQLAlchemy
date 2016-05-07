@@ -32,7 +32,9 @@ c  = Model.query.filter(Model.year > 1960).all()
 
 # Get all brands that were founded after 1920.
 d = Brand.query.filter(Brand.founded > 1920).all()
+
 # Get all models with names that begin with "Cor".
+e = Model.query.filter(Model.name.like('Cor%')).all()
 
 # Get all brands with that were founded in 1903 and that are not yet discontinued.
 

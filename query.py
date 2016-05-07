@@ -12,9 +12,6 @@ here, so feel free to refer to classes without the
 """
 
 from model import *
-from sqlalchemy.orm import sessionmaker
-Session = sessionmaker(bind=engine)
-session = Session()
 
 init_app()
 
@@ -28,7 +25,7 @@ init_app()
 a = Brand.query.filter_by(id=8).one()
 
 # Get all models with the **name** Corvette and the **brand_name** Chevrolet.
-
+b = Model.query.filter_by(name="Corvette", brand_name="Chevrolet").all()
 # Get all models that are older than 1960.
 
 # Get all brands that were founded after 1920.

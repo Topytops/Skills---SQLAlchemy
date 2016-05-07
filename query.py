@@ -37,8 +37,10 @@ d = Brand.query.filter(Brand.founded > 1920).all()
 e = Model.query.filter(Model.name.like('Cor%')).all()
 
 # Get all brands with that were founded in 1903 and that are not yet discontinued.
+f = Brand.query.filter(Brand.founded == 1903, Brand.discontinued == None).all()
 
 # Get all brands with that are either discontinued or founded before 1950.
+g = Brand.query.filter( db.or_(Brand.discontinued != None, Brand.founded < 1950)).all()
 
 # Get any model whose brand_name is not Chevrolet.
 

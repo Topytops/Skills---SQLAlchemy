@@ -65,13 +65,20 @@ def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    brand_name = db.session.query(Brand, Model).join(Model).all()
+    # brand_names = db.session.query(Brand, Model).join(Model).all()
 
-    for brand, model in brand_name:
-        print brand.name + " " + model.name
+    # for brand, model in brand_names:
+    #     print brand.name + "\n" "  " + model.name
 
-get_brands_summary()        
+    summary = db.session.query(Brand, Model).join(Model).order_by(Brand.name).all()
 
+    print "BRAND" + "\t" + "MODEL"
+
+    for brand, model in summary:ß
+        print brand.name + "    " + model.name
+
+
+get_brands_summary()
 # -------------------------------------------------------------------
 
 
